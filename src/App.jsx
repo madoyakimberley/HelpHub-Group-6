@@ -1,22 +1,33 @@
+import { useState } from "react";
+import { useJobs } from "./hooks/useJobs";
+
 import Header from "./components/Header";
-import RoleSelectionScreen from "./components/RoleSelectionScreen";
-import JobMarketplace from "./components/JobMarketplace";
-import JobDetailsScreen from "./components/JobDetailsScreen";
-import WorkerJobFeed from "./components/WorkerJobFeed";
+import RoleSelectionScreen from "./pages/RoleSelectionScreen";
+import JobMarketplace from "./pages/JobMarketplace";
+import JobDetailsScreen from "./pages/JobDetailsScreen";
+import WorkerJobFeed from "./pages/WorkerJobFeed";
 import PostTaskModal from "./components/PostTaskModal";
 import PlaceBidModal from "./components/PlaceBidModal";
 import PaymentModal from "./components/PaymentModal";
 
 function App() {
+  const jobsData = useJobs();
+
+  const [view, setView] = useState("landing");
+  const [userType, setUserType] = useState(null);
+
+  const handleRoleSelect = (role) => {
+    setUserType(role);
+    setView("feed");
+  };
+  //PAGES WILL BE ADDED LATER ON
   return (
     <div className="app-container">
       <Header />
-      {/* TODO: Add a state variable here (e.g., const [view, setView] = useState('landing')) 
-          to toggle between these components below */}
-      <RoleSelectionScreen />
-      {/* These will be hidden/shown based on your logic later */}
-      {/* <JobMarketplace /> */}
-      {/* <PostTaskModal /> */}
+
+      <PostTaskModal />
+      <PlaceBidModal />
+      <PaymentModal />
     </div>
   );
 }

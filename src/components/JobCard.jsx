@@ -1,8 +1,6 @@
+import { MapPin, Clock, ArrowRight } from "lucide-react";
+
 function JobCard() {
-  return (
-    <div className="job-card">
-      {/* TODO: Design the job preview (Title, Price, Location, and 'View Details' button) */}
-    </div>
-  );
+  return <div className="job-card">coming soon </div>;
 }
 export default JobCard;

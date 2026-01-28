@@ -1,9 +1,6 @@
+import { X, Upload } from "lucide-react";
 function PostTaskModal() {
-  return (
-    <div>
-      {/* TODO: Create form with inputs for Task Title, Description, and Budget */}
-    </div>
-  );
+  return <div>Coming soon</div>;
 }
 
 export default PostTaskModal;

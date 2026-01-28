@@ -1,8 +1,6 @@
+import { CheckCircle2, X, Shield } from "lucide-react";
+
 function PaymentModal() {
-  return (
-    <div className="modal">
-      {/* TODO: Build the M-Pesa/Payment integration UI or confirmation screen */}
-    </div>
-  );
+  return <div className="modal">coming soon </div>;
 }
 export default PaymentModal;

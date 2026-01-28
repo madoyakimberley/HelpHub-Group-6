@@ -1,1 +1,62 @@
-[]
+[
+  {
+    "id": 1,
+    "title": "Full House Deep Clean",
+    "description": "Thorough cleaning of a 4-bedroom house including windows.",
+    "category": "Cleaning",
+    "image": "cleaning_house.jpg",
+    "budget": 8000,
+    "location": "Kilimani",
+    "status": "Open"
+  },
+  {
+    "id": 2,
+    "title": "Mountain Bike Tune-up",
+    "description": "Brakes and gear alignment needed for a Trek mountain bike.",
+    "category": "Repair",
+    "image": "fixing_bike.jpg",
+    "budget": 3500,
+    "location": "Karen",
+    "status": "Urgent"
+  },
+  {
+    "id": 3,
+    "title": "Laundry & Ironing Service",
+    "description": "Looking for weekly laundry help, roughly 3 loads of clothes.",
+    "category": "Cleaning",
+    "image": "cleaning_clothes.jpg",
+    "budget": 2000,
+    "location": "Westlands",
+    "status": "Open"
+  },
+  {
+    "id": 4,
+    "title": "Garden Wall Painting",
+    "description": "Need the perimeter wall repainted. Paint will be provided.",
+    "category": "Painting",
+    "image": "painting_house.jpg",
+    "budget": 12000,
+    "location": "Lavington",
+    "status": "Open"
+  },
+  {
+    "id": 5,
+    "title": "Morning Dog Walker",
+    "description": "30-minute walk for a friendly Golden Retriever every morning.",
+    "category": "Pets",
+    "image": "walking_dogs.jpg",
+    "budget": 1500,
+    "location": "Syokimau",
+    "status": "Open"
+  },
+  {
+    "id": 6,
+    "title": "Kitchen Sink Leak Repair",
+    "description": "Small leak under the sink. Needs a new pipe gasket.",
+    "category": "Plumbing",
+    "image": "plumbing.jpg",
+    "budget": 2500,
+    "location": "Parklands",
+    "status": "Urgent"
+  }
+]
