@@ -36,7 +36,7 @@ export function useJobs() {
   - The second value (e.g., 'setJobs') is the only person allowed to change what's in the box.
   - Whenever we put something NEW in the box, React yells "HEY EVERYONE!" and 
     immediately redraws the screen so the user sees the new toy.
- */
+  */
   const [jobs, setJobs] = useState([]);
   const [filteredJobs, setFilteredJobs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -56,8 +56,10 @@ export function useJobs() {
  */
   useEffect(() => {
     const timer = setTimeout(() => {
-      const processedData = jobsData.map((job) => ({
+      const processedData = jobsData.map((job, idx) => ({
         ...job,
+        id: idx + 1, // ensure each job has a unique ID
+        bids: 0, // default number of bids
         image: assetMap[job.image] || plumbing,
       }));
 
@@ -93,17 +95,41 @@ export function useJobs() {
   /*
    FOR KiM : Creating New Content
     When a user submits the "Post Task" form, call this.
+   Updated to ensure new jobs display immediately
    */
   const addJob = (newJobData) => {
     const newJob = {
       ...newJobData,
-      id: jobs.length + 1,
+      id: jobs.length + 1, // unique ID
       status: "open",
-      image: assetMap[newJobData.image] || cleaningHouse,
+      bids: 0, // initialize bids
+      image: newJobData.image ? newJobData.image : cleaningHouse, // use uploaded image or default
     };
 
+    // add to the start of both jobs arrays so UI updates instantly
     setJobs((prev) => [newJob, ...prev]);
     setFilteredJobs((prev) => [newJob, ...prev]);
+  };
+
+  /*
+    FOR PLACE BID FUNCTIONALITY
+    This lets workers bid on a job. It updates both jobs and filteredJobs arrays.
+    Logic: increment bids count for the selected job.
+  */
+  const placeBid = (jobId, amount) => {
+    setJobs((prev) =>
+      prev.map((job) =>
+        job.id === jobId
+          ? { ...job, bids: job.bids ? job.bids + 1 : 1 } // increment bids
+          : job,
+      ),
+    );
+
+    setFilteredJobs((prev) =>
+      prev.map((job) =>
+        job.id === jobId ? { ...job, bids: job.bids ? job.bids + 1 : 1 } : job,
+      ),
+    );
   };
 
   // 3. THE TEAM'S TOOLBOX
@@ -114,5 +140,6 @@ export function useJobs() {
     selectedJob, // Ryan: Use this to show the details of the clicked job
     selectJob, // Ted: Use this to "set" which job was clicked
     addJob, // KiM: Use this for the form submit
+    placeBid, // Workers: Call this from PlaceBidModal
   };
 }
