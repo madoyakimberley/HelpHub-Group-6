@@ -7,30 +7,20 @@ import Textarea from "./ui/textarea";
 import Dialog from "./ui/dialog";
 
 function PostTaskModal({ isOpen, onClose, addJob }) {
-  // 1. THE BRAIN'S NOTEBOOK
   const [formData, setFormData] = useState({
     title: "",
     location: "",
     description: "",
     category: "Cleaning",
-    image: null, // ✅ Store uploaded file
+    image: null,
   });
 
-  // 2. HANDLE FORM SUBMIT
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.title || !formData.location) return;
 
-    addJob({
-      ...formData,
-      image: formData.image
-        ? URL.createObjectURL(formData.image)
-        : "cleaning_house.jpg",
-      date: "Just now",
-      status: "open",
-    });
+    addJob(formData); // <-- Add the new job
 
-    // Reset form
     setFormData({
       title: "",
       location: "",
@@ -47,39 +37,34 @@ function PostTaskModal({ isOpen, onClose, addJob }) {
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Upload Photo */}
         <div className="space-y-2">
-          <Label className="font-semibold text-slate-900">Task Photo *</Label>
-
-          {/* Hidden file input */}
+          <Label>Task Photo *</Label>
           <input
             type="file"
-            id="task-photo"
             accept="image/*"
             className="hidden"
+            id="task-photo"
             onChange={(e) =>
-              setFormData({ ...formData, image: e.target.files[0] })
+              setFormData({ ...formData, image: e.target.files?.[0] || null })
             }
           />
-
-          {/* Clickable upload box */}
           <label
             htmlFor="task-photo"
-            className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-[#00C48C] rounded-2xl bg-emerald-50/30 cursor-pointer hover:bg-emerald-50/50 transition-all"
+            className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed rounded-2xl cursor-pointer"
           >
-            <Upload size={28} className="text-[#00C48C] mb-1" />
-            <span className="text-xs font-medium text-slate-600">
-              {formData.image ? formData.image.name : "Click to upload photo"}
+            <Upload size={28} className="mb-1" />
+            <span>
+              {formData.image ? formData.image.name : "Click to upload a file"}
             </span>
           </label>
         </div>
 
-        {/* Task Title */}
+        {/* Title */}
         <div className="space-y-2">
           <Label htmlFor="task-title">What do you need help with? *</Label>
           <Input
             id="task-title"
             required
             placeholder="e.g., Fix broken kitchen sink"
-            className="h-14 rounded-xl focus:ring-[#1A66FF] text-lg"
             value={formData.title}
             onChange={(e) =>
               setFormData({ ...formData, title: e.target.value })
@@ -99,7 +84,7 @@ function PostTaskModal({ isOpen, onClose, addJob }) {
               id="location"
               required
               placeholder="e.g., Nairobi, Westlands"
-              className="h-14 pl-12 rounded-xl focus:ring-[#1A66FF]"
+              className="pl-12"
               value={formData.location}
               onChange={(e) =>
                 setFormData({ ...formData, location: e.target.value })
@@ -114,7 +99,6 @@ function PostTaskModal({ isOpen, onClose, addJob }) {
           <Textarea
             id="desc"
             placeholder="Provide details so workers can bid accurately..."
-            className="rounded-xl min-h-25 resize-none focus:ring-[#1A66FF]"
             value={formData.description}
             onChange={(e) =>
               setFormData({ ...formData, description: e.target.value })
@@ -122,13 +106,7 @@ function PostTaskModal({ isOpen, onClose, addJob }) {
           />
         </div>
 
-        {/* Submit */}
-        <Button
-          type="submit"
-          className="w-full h-14 bg-linear-to-r from-[#00C48C] to-[#1A66FF] text-white rounded-2xl font-bold text-lg hover:shadow-[0_8px_24px_rgba(0,196,140,0.3)] transition-all border-none"
-        >
-          Post Task & Get Bids
-        </Button>
+        <Button type="submit">Post Task & Get Bids</Button>
       </form>
     </Dialog>
   );
