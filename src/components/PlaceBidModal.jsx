@@ -1,35 +1,24 @@
 import { useState, useEffect } from "react";
 import { Gavel } from "lucide-react";
-// UI components
 import Button from "../components/ui/button";
 import Input from "../components/ui/input";
 import Label from "../components/ui/label";
 import Dialog from "../components/ui/dialog";
 
-/*
-  PLACE BID MODAL
-  Logic: Tracks bidPrice state and sends it via placeBid.
-  UI Shell: Uses the Dialog component for the popup container.
-  UI Elements: Uses pre-made Button, Input, and Label for consistent styling.
-*/
 function PlaceBidModal({ isOpen, onClose, selectedJob, placeBid }) {
-  // THE MEMORY: Notebook to store the price the user types
   const [bidPrice, setBidPrice] = useState("");
 
-  // Reset bidPrice whenever modal opens/closes or selected job changes
   useEffect(() => {
     setBidPrice("");
   }, [isOpen, selectedJob]);
 
-  // THE ACTION: Packaging the data to send to the logic hook
   const handleSendBid = () => {
-    if (!bidPrice || !selectedJob) return;
+    const amount = Number(bidPrice);
+    if (!selectedJob || amount <= 0) return;
 
-    // ✅ Only use placeBid; don't touch jobs directly
-    placeBid(selectedJob.id, Number(bidPrice));
-
-    setBidPrice(""); // Clear notebook
-    onClose(); // Close the modal
+    placeBid(selectedJob.id, amount);
+    setBidPrice("");
+    onClose();
   };
 
   return (
@@ -53,28 +42,30 @@ function PlaceBidModal({ isOpen, onClose, selectedJob, placeBid }) {
         {/* Bid Input */}
         <div className="space-y-2 mb-8 text-left">
           <Label htmlFor="bid-amount" className="text-slate-900 font-semibold">
-            Your Offer ($) *
+            Your Offer (Ksh) *
           </Label>
           <div className="relative">
-            <span className="absolute left-4 top-1/2 -translate-y-1/2 font-bold text-slate-400 text-xl z-10">
-              $
+            <span className="absolute left-4 top-1/2 -translate-y-1/2 font-bold text-slate-400 text-lg z-10">
+              Ksh
             </span>
             <Input
               id="bid-amount"
               type="number"
-              placeholder="0.00"
-              className="pl-10 h-16 text-2xl font-bold rounded-2xl border-slate-200 focus:ring-2 focus:ring-[#1A66FF]"
+              min="1"
+              placeholder="0"
+              className="pl-14 h-16 text-2xl font-bold rounded-2xl border-slate-200 focus:ring-2 focus:ring-[#1A66FF]"
               value={bidPrice}
               onChange={(e) => setBidPrice(e.target.value)}
             />
           </div>
         </div>
 
-        {/* Action Buttons */}
+        {/* Actions */}
         <div className="flex flex-col gap-3">
           <Button
             onClick={handleSendBid}
-            className="w-full h-14 text-lg font-bold bg-linear-to-r from-[#00C48C] to-[#1A66FF] hover:opacity-90 transition-all rounded-2xl text-white border-none"
+            disabled={!bidPrice || Number(bidPrice) <= 0}
+            className="w-full h-14 text-lg font-bold bg-linear-to-r from-[#00C48C] to-[#1A66FF] hover:opacity-90 disabled:opacity-50 transition-all rounded-2xl text-white border-none"
           >
             Confirm & Send Bid
           </Button>
