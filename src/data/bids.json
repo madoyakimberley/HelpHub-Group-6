@@ -1,0 +1,122 @@
+[
+  {
+    "id": "bid1",
+    "jobId": 1,
+    "workerName": "Alice Mwangi",
+    "amount": 1800,
+    "rating": 4.8,
+    "completedJobs": 12,
+    "workerAvatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=alice",
+    "phone": "+254712345601"
+  },
+  {
+    "id": "bid2",
+    "jobId": 1,
+    "workerName": "John Kamau",
+    "amount": 2000,
+    "rating": 4.6,
+    "completedJobs": 9,
+    "workerAvatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=john",
+    "phone": "+254712345602"
+  },
+  {
+    "id": "bid3",
+    "jobId": 2,
+    "workerName": "Brian Otieno",
+    "amount": 3500,
+    "rating": 4.7,
+    "completedJobs": 14,
+    "workerAvatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=brian",
+    "phone": "+254712345603"
+  },
+  {
+    "id": "bid4",
+    "jobId": 2,
+    "workerName": "Mercy Wanjiku",
+    "amount": 3200,
+    "rating": 4.9,
+    "completedJobs": 21,
+    "workerAvatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=mercy",
+    "phone": "+254712345604"
+  },
+  {
+    "id": "bid5",
+    "jobId": 3,
+    "workerName": "Kevin Njoroge",
+    "amount": 1500,
+    "rating": 4.5,
+    "completedJobs": 6,
+    "workerAvatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=kevin",
+    "phone": "+254712345605"
+  },
+  {
+    "id": "bid6",
+    "jobId": 3,
+    "workerName": "Diana Achieng",
+    "amount": 1700,
+    "rating": 4.8,
+    "completedJobs": 18,
+    "workerAvatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=diana",
+    "phone": "+254712345606"
+  },
+  {
+    "id": "bid7",
+    "jobId": 4,
+    "workerName": "Peter Maina",
+    "amount": 9000,
+    "rating": 4.6,
+    "completedJobs": 11,
+    "workerAvatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=peter",
+    "phone": "+254712345607"
+  },
+  {
+    "id": "bid8",
+    "jobId": 4,
+    "workerName": "Grace Chebet",
+    "amount": 8500,
+    "rating": 4.9,
+    "completedJobs": 25,
+    "workerAvatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=grace",
+    "phone": "+254712345608"
+  },
+  {
+    "id": "bid9",
+    "jobId": 5,
+    "workerName": "Samuel Kiptoo",
+    "amount": 1200,
+    "rating": 4.7,
+    "completedJobs": 10,
+    "workerAvatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=samuel",
+    "phone": "+254712345609"
+  },
+  {
+    "id": "bid10",
+    "jobId": 5,
+    "workerName": "Faith Nduta",
+    "amount": 1400,
+    "rating": 4.6,
+    "completedJobs": 8,
+    "workerAvatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=faith",
+    "phone": "+254712345610"
+  },
+  {
+    "id": "bid11",
+    "jobId": 6,
+    "workerName": "Daniel Mutua",
+    "amount": 2600,
+    "rating": 4.8,
+    "completedJobs": 16,
+    "workerAvatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=daniel",
+    "phone": "+254712345611"
+  },
+  {
+    "id": "bid12",
+    "jobId": 6,
+    "workerName": "Esther Wairimu",
+    "amount": 2400,
+    "rating": 4.9,
+    "completedJobs": 22,
+    "workerAvatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=esther",
+    "phone": "+254712345612"
+  }
+]
