@@ -5,6 +5,7 @@
 [![React](https://img.shields.io/badge/Frontend-React.js-61DAFB?style=flat-square&logo=react)](https://reactjs.org/)
 [![Vite](https://img.shields.io/badge/Build_Tool-Vite-646CFF?style=flat-square&logo=vite)](https://vitejs.dev/)
 [![Tailwind](https://img.shields.io/badge/Styling-Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
+[![Live Demo](https://img.shields.io/badge/Live-Demo_Example-brightgreen?style=for-the-badge&logo=render)](https://helphub-group-6.onrender.com/)
 
 **HelpHub** is a digital marketplace built to solve the fragmentation of the informal labor market in Kenya. By combining visual task validation with competitive bidding logic, it eliminates "ghosting" and price uncertainty, creating a transparent ecosystem for service matching.
 
